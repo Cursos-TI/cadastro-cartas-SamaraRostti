@@ -18,6 +18,17 @@ int main() {
   printf("Digite o tamanho da população: \n");
   scanf("%d", &Populacao);
 
+  printf("Qual é o tamanho da área da cidade? \n");
+  scanf("%f", &Area);
+
+  printf("Qual o PIB da Cidade?");
+  scanf("%f", &PIB);
+
+  printf("Existem quantos pontos Turisticos na cidade? \n");
+  scanf("%d", &Num_pontos_P);
+
+
+
   // Área para exibição dos dados da cidade
 
 return 0;
