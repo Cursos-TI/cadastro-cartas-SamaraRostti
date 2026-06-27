@@ -14,6 +14,7 @@ int main() {
 
 
   // Área para entrada de dados
+  //COLOQUEI O PREENCHIMENTO DOS DADOS
   printf("Digite o tamanho da população: \n");
   scanf("%d", &Populacao);
 
