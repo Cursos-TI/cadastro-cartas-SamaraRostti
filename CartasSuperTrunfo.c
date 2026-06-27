@@ -49,4 +49,4 @@ int main() {
   printf("A cidade possui: %d pontos turísticos\n", Num_pontos_P);
 
 return 0;
-} 
+}
