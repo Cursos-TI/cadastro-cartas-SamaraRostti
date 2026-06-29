@@ -122,5 +122,5 @@ int main() {
   // - Nível Novato: Cadastro e exibição básica das duas cartas.
   // - Nível Aventureiro: Adicionado o cálculo automático de Densidade e PIB per Capita.
   // - Nível Mestre: Adicionado cálculo (com inverso de densidade) e comparações diretas via operadores relacionais gerando saídas lógicas (0 ou 1).
-  // PROJETO SUPER TRUNFO CONCLUÍDO COM SUCESSO! 🚀
+  // PROJETO SUPER TRUNFO CONCLUÍDO COM SUCESSO! 
 }
