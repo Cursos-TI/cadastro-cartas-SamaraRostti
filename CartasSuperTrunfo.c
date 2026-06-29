@@ -8,8 +8,8 @@ int main() {
   float Area1, PIB1;
   float Densidade1;
   float Pib_Capita1;
+  float SuperPoder1; // Nova variável para o Super Poder da Carta 1
 
-//FOI ADICIONADO AS 2 VARIAVEIS PARA CALCULAR DENSIDADE POPULACIONAL E PIB DAS CARTAS.
   // --- VARIÁVEIS DA CARTA 2 ---
   char Estado2;
   char Cod_carta2[4];
@@ -17,9 +17,7 @@ int main() {
   float Area2, PIB2;
   float Densidade2;
   float Pib_Capita2;
-
-  
-
+  float SuperPoder2; // Nova variável para o Super Poder da Carta 2
 
 
   // ================= CADASTRANDO A CARTA 1 =================
@@ -54,17 +52,24 @@ int main() {
   printf("Quantidade de pontos turisticos: \n");
   scanf("%d", &Num_pontos_P2);
 
-//ADICIONEI O CODIGO DE /  PRA CALCULAR DENSIDADE POPULACIONAL E PIB DAS CARTAS. 
-// Contas da Carta 1 (usa os dados da carta 1)
+
+  // ================= CÁLCULOS DO SISTEMA =================
+  
+  // Contas do Nível Aventureiro
   Densidade1 = Populacao1 / Area1;
   Pib_Capita1 = PIB1 / Populacao1;
 
-  // Contas da Carta 2 (usa os dados da carta 2)
   Densidade2 = Populacao2 / Area2;
   Pib_Capita2 = PIB2 / Populacao2;
 
-//USEI "ESTILIZAÇÕES" PRA DEIXAR VISUALMENTE MAIS LEGÍVEL, MAS NÃO É NECESSÁRIO PARA O FUNCIONAMENTO DO CÓDIGO
-  // ================= EXIBIÇÃO DOS DADOS =================
+  // Contas do Nível Mestre (Super Poder)
+  // Nota: (float) converte a população temporariamente para float para não perder precisão na soma.
+  // Nota 2: (1.0 / Densidade) calcula o inverso da densidade, cumprindo o requisito de menor densidade = mais poder.
+  SuperPoder1 = (float)Populacao1 + Area1 + PIB1 + (float)Num_pontos_P1 + Pib_Capita1 + (1.0 / Densidade1);
+  SuperPoder2 = (float)Populacao2 + Area2 + PIB2 + (float)Num_pontos_P2 + Pib_Capita2 + (1.0 / Densidade2);
+
+
+  // ================= EXIBIÇÃO DOS DADOS INDIVIDUAIS =================
   printf("\n==================================\n");
   printf("       CARTAS CADASTRADAS         \n");
   printf("==================================\n");
@@ -79,6 +84,7 @@ int main() {
   printf("Pontos Turisticos: %d\n", Num_pontos_P1);
   printf("Densidade Populacional: %.2f hab/km²\n", Densidade1);
   printf("PIB per Capita: R$ %.2f\n", Pib_Capita1);
+  printf("Super Poder: %.2f\n", SuperPoder1);
 
   // Exibição da Carta 2
   printf("\n--- CARTA 2 ---\n");
@@ -90,23 +96,31 @@ int main() {
   printf("Pontos Turisticos: %d\n", Num_pontos_P2);
   printf("Densidade Populacional: %.2f hab/km²\n", Densidade2);
   printf("PIB per Capita: R$ %.2f\n", Pib_Capita2);
+  printf("Super Poder: %.2f\n", SuperPoder2);
+
+
+  // ================= EXIBIÇÃO DAS COMPARAÇÕES (NÍVEL MESTRE) =================
+  printf("\n==================================\n");
+  printf("      COMPARAÇÃO DE CARTAS        \n");
+  printf("==================================\n");
+
+  // O C avalia a comparação. Se for VERDADEIRO, exibe 1 (Carta 1 venceu). Se for FALSO, exibe 0 (Carta 2 venceu).
+  printf("Populacao: Carta 1 venceu (%d)\n", Populacao1 > Populacao2);
+  printf("Area: Carta 1 venceu (%d)\n", Area1 > Area2);
+  printf("PIB: Carta 1 venceu (%d)\n", PIB1 > PIB2);
+  printf("Pontos Turisticos: Carta 1 venceu (%d)\n", Num_pontos_P1 > Num_pontos_P2);
+  
+  // ATENÇÃO: Regra invertida para Densidade! O MENOR valor vence (<).
+  printf("Densidade Populacional: Carta 1 venceu (%d)\n", Densidade1 < Densidade2);
+  
+  printf("PIB per Capita: Carta 1 venceu (%d)\n", Pib_Capita1 > Pib_Capita2);
+  printf("Super Poder: Carta 1 venceu (%d)\n", SuperPoder1 > SuperPoder2);
 
   return 0;
 
-  //RESUMO ATÉ O MOMENTO: FOI ADICIONADA A SEGUNDA CARTA E FINALIZADO O NIVEL NOVATO
-  
-  //FOI ADICIONADO AS VARIAVEIS PARA CALCULAR DENSIDADE POPULACIONAL E PIB DAS CARTAS.
-
-  //UTILIZEI ESTILIZAÇÕES PRA DEIXAR VISUALMENTE MAIS LEGÍVEL, MAS NÃO É NECESSÁRIO PARA O FUNCIONAMENTO DO CÓDIGO
-
-  //UTILZEI A DIVISÃO PRA CALCULAR DENSIDADE POPULACIONAL E PIB DAS CARTAS.
-
-  //FOI ADICIONADO UMA NOVA FORMULA PARA REALIZAR O CALCULO:" 
-  //Densidade2 = Populacao2 / Area2; 
-  //Pib_Capita2 = PIB2 / Populacao2;"
-
-  //UTILIZEI O PRINTF PRA EXIBIR OS DADOS DAS CARTAS, APOS O PREENCHIMENTO DAS CARTAS. 
-
-  //NIVEL AVENTUREIRO FINALIZADO.
-
+  // RESUMO FINAL:
+  // - Nível Novato: Cadastro e exibição básica das duas cartas.
+  // - Nível Aventureiro: Adicionado o cálculo automático de Densidade e PIB per Capita.
+  // - Nível Mestre: Adicionado cálculo (com inverso de densidade) e comparações diretas via operadores relacionais gerando saídas lógicas (0 ou 1).
+  // PROJETO SUPER TRUNFO CONCLUÍDO COM SUCESSO! 🚀
 }
