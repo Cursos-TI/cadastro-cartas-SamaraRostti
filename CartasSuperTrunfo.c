@@ -6,12 +6,20 @@ int main() {
   char Cod_carta1[4];
   int Populacao1, Num_pontos_P1;
   float Area1, PIB1;
+  float Densidade1;
+  float Pib_Capita1;
 
+//FOI ADICIONADO AS 2 VARIAVEIS PARA CALCULAR DENSIDADE POPULACIONAL E PIB DAS CARTAS.
   // --- VARIÁVEIS DA CARTA 2 ---
   char Estado2;
   char Cod_carta2[4];
   int Populacao2, Num_pontos_P2;
   float Area2, PIB2;
+  float Densidade2;
+  float Pib_Capita2;
+
+  
+
 
 
   // ================= CADASTRANDO A CARTA 1 =================
@@ -46,7 +54,16 @@ int main() {
   printf("Quantidade de pontos turisticos: \n");
   scanf("%d", &Num_pontos_P2);
 
+//ADICIONEI O CODIGO DE /  PRA CALCULAR DENSIDADE POPULACIONAL E PIB DAS CARTAS. 
+// Contas da Carta 1 (usa os dados da carta 1)
+  Densidade1 = Populacao1 / Area1;
+  Pib_Capita1 = PIB1 / Populacao1;
 
+  // Contas da Carta 2 (usa os dados da carta 2)
+  Densidade2 = Populacao2 / Area2;
+  Pib_Capita2 = PIB2 / Populacao2;
+
+//USEI "ESTILIZAÇÕES" PRA DEIXAR VISUALMENTE MAIS LEGÍVEL, MAS NÃO É NECESSÁRIO PARA O FUNCIONAMENTO DO CÓDIGO
   // ================= EXIBIÇÃO DOS DADOS =================
   printf("\n==================================\n");
   printf("       CARTAS CADASTRADAS         \n");
@@ -60,6 +77,8 @@ int main() {
   printf("Area: %.2f M²\n", Area1);
   printf("PIB: R$%.2f Milhoes\n", PIB1);
   printf("Pontos Turisticos: %d\n", Num_pontos_P1);
+  printf("Densidade Populacional: %.2f hab/km²\n", Densidade1);
+  printf("PIB per Capita: R$ %.2f\n", Pib_Capita1);
 
   // Exibição da Carta 2
   printf("\n--- CARTA 2 ---\n");
@@ -69,6 +88,8 @@ int main() {
   printf("Area: %.2f M²\n", Area2);
   printf("PIB: R$%.2f Milhoes\n", PIB2);
   printf("Pontos Turisticos: %d\n", Num_pontos_P2);
+  printf("Densidade Populacional: %.2f hab/km²\n", Densidade2);
+  printf("PIB per Capita: R$ %.2f\n", Pib_Capita2);
 
   return 0;
   //adicionada segunda carta e finalizado nivel novato
